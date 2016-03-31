@@ -6,6 +6,7 @@ using Microsoft.AspNet.Routing;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.PlatformAbstractions;
 using OdeToFood.Entities;
 using OdeToFood.Services;
 
@@ -46,6 +47,7 @@ namespace OdeToFood
         public void Configure(
             IApplicationBuilder app,
             IHostingEnvironment environment,
+            IApplicationEnvironment appEnvironment,
             IGreeter greeter)
         {
             app.UseIISPlatformHandler();
@@ -58,6 +60,8 @@ namespace OdeToFood
             app.UseRuntimeInfoPage("/info");
 
             app.UseFileServer();
+
+            app.UseNodeModules(appEnvironment);
 
             app.UseIdentity();
 
