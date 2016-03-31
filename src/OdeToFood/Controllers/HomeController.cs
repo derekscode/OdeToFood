@@ -6,7 +6,7 @@ using OdeToFood.ViewModels;
 
 namespace OdeToFood.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class HomeController : Controller
     {
         private IRestaurantData _restaurantData;
